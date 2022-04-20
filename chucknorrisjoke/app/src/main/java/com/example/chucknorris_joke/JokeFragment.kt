@@ -30,7 +30,7 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
 
         val fragmentView = inflater.inflate(R.layout.fragment_main, container, false)
 
-        viewModel = ViewModelProvider(this).get(JokeViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(JokeViewModel::class.java)
         viewModel.currentJoke.observe(
             viewLifecycleOwner,
             Observer { currentJoke -> updateJoke(currentJoke) })
