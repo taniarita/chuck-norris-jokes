@@ -44,8 +44,37 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-
     implementation("androidx.fragment:fragment-ktx:1.4.1")
-
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+
+
+    implementation "io.insert-koin:koin-android:3.1.6"
+    // Koin Core features
+    implementation "io.insert-koin:koin-core:3.1.6"
+    // Koin Test features
+    testImplementation "io.insert-koin:koin-test:3.1.6"
+    // Java Compatibility
+    implementation "io.insert-koin:koin-android-compat:3.1.6"
+// Jetpack WorkManager
+    implementation "io.insert-koin:koin-androidx-workmanager:3.1.6"
+// Navigation Graph
+    implementation "io.insert-koin:koin-androidx-navigation:3.1.6"
+// Jetpack Compose
+    implementation "io.insert-koin:koin-androidx-compose:3.1.6"
+
+//    def koin_version= "3.1.6"
+//
+//// Koin main features for Android
+//    implementation "io.insert-koin:koin-android:$koin_version"
+//// No more koin-android-viewmodel, koin-android-scope, koin-android-fragment
+//
+//// Java Compatibility
+//    implementation "io.insert-koin:koin-android-compat:$koin_version"
+//// Jetpack WorkManager
+//    implementation "io.insert-koin:koin-androidx-workmanager:$koin_version"
+//// Navigation Graph
+//    implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
+//// Jetpack Compose
+//    implementation "io.insert-koin:koin-androidx-compose:$koin_version"
+
 }

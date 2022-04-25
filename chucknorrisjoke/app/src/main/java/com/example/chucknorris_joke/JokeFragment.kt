@@ -8,17 +8,18 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class JokeFragment : Fragment(R.layout.fragment_main) {
 
-    var jokeModel: JokeModel? = null
     var fact: TextView? = null
     var button: Button? = null
 
-    private lateinit var viewModel: JokeViewModel
+//    private lateinit var viewModel: JokeViewModel
+    private val viewModel: JokeViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,20 +31,22 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
 
         val fragmentView = inflater.inflate(R.layout.fragment_main, container, false)
 
-        viewModel = ViewModelProvider(requireActivity()).get(JokeViewModel::class.java)
+//        viewModel = ViewModelProvider(requireActivity()).get(JokeViewModel::class.java)
+
+        fact?.text = viewModel.currentJoke.value
+
         viewModel.currentJoke.observe(
             viewLifecycleOwner,
             Observer { currentJoke -> updateJoke(currentJoke) })
 
         fact = fragmentView.findViewById(R.id.fact)
-        fact?.setText(viewModel.currentJoke.value)
+        fact?.text = viewModel.currentJoke.value
 
         button = fragmentView.findViewById(R.id.button)
-        button?.setText("Next")
+        button?.text = "Next"
 
         button?.setOnClickListener {
             context?.let { context -> viewModel.getData(context) }
-//            viewModel.getData()
         }
 
         Log.i("JokeFragment", "Called ViewModelProvider.get")
