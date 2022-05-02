@@ -2,14 +2,16 @@ package com.example.chucknorris_joke.di
 
 import com.example.chucknorris_joke.JokeViewModel
 import com.example.chucknorris_joke.RetrofitClient
+import com.example.chucknorris_joke.data.JokeDataSource
 import com.example.chucknorris_joke.data.JokeDataSourceImpl
+import com.example.chucknorris_joke.repository.JokeRepository
 import com.example.chucknorris_joke.repository.JokeRepositoryImpl
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
 val jokeViewModelModule = module {
-    single{
-        JokeViewModel(androidApplication())
+    single {
+        JokeViewModel(androidApplication(), get())
     }
 }
 
@@ -24,16 +26,12 @@ val retrofitJokeService = module {
     }
 }
 
-val jokeDataSourceModule = module{
-    single {
-        JokeDataSourceImpl(get())
-    }
+val jokeDataSourceModule = module {
+    factory<JokeDataSource> { JokeDataSourceImpl(get()) }
 }
 
 val jokeRepositoryModule = module {
-    single {
-        JokeRepositoryImpl(get())
-    }
+    factory<JokeRepository> { JokeRepositoryImpl(get()) }
 }
 
 

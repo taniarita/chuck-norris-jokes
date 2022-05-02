@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
 
 
 class JokeFragment : Fragment(R.layout.fragment_main) {
@@ -17,9 +17,7 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
     var fact: TextView? = null
     var button: Button? = null
 
-
-
-    private val viewModel: JokeViewModel by viewModel()
+    private val viewModel: JokeViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,

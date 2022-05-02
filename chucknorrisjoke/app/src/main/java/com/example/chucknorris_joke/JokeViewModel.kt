@@ -5,36 +5,39 @@ import android.content.Context
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.lifecycle.viewModelScope
+import com.example.chucknorris_joke.repository.JokeRepository
+import kotlinx.coroutines.launch
 
 class JokeViewModel(
-        application: Application
+        application: Application,
+        private val jokeRepository : JokeRepository
 ) : AndroidViewModel(application) {
 
     val currentJoke = MutableLiveData<String>("")
 
+//    private val jokeRepository : JokeRepository by inject()
 
     fun getJoke(context: Context) {
-        val retrofitClient =
-            RetrofitClient.getRetrofitInstance("https://api.chucknorris.io/")
+//        val retrofitClient =
+//            RetrofitClient.getRetrofitInstance("https://api.chucknorris.io/")
+//
+//        val callback =
+//            retrofitClient.getJoke()
+//
+//        callback.enqueue(object : Callback<JokeModel> {
+//            override fun onFailure(call: Call<JokeModel>, t: Throwable) {
+//            }
+//
+//            override fun onResponse(call: Call<JokeModel>, response: Response<JokeModel>) {
+//                currentJoke.value = response.body()?.value
+//
+//            }
 
-//        val service =
-//            retrofitClient.create(Service::class.java)
+        viewModelScope.launch { currentJoke.value = jokeRepository.getJoke().value }
 
-        val callback =
-            retrofitClient.getJokes()
 
-        callback.enqueue(object : Callback<JokeModel> {
-            override fun onFailure(call: Call<JokeModel>, t: Throwable) {
-            }
 
-            override fun onResponse(call: Call<JokeModel>, response: Response<JokeModel>) {
-                currentJoke.value = response.body()?.value
-
-            }
-        })
     }
 
 
