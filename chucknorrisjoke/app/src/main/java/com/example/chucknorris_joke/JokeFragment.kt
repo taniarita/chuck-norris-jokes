@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-
 import androidx.lifecycle.Observer
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
 
 
 class JokeFragment : Fragment(R.layout.fragment_main) {
@@ -18,8 +17,7 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
     var fact: TextView? = null
     var button: Button? = null
 
-//    private lateinit var viewModel: JokeViewModel
-    private val viewModel: JokeViewModel by viewModel()
+    private val viewModel: JokeViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,22 +29,21 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
 
         val fragmentView = inflater.inflate(R.layout.fragment_main, container, false)
 
-//        viewModel = ViewModelProvider(requireActivity()).get(JokeViewModel::class.java)
-
+        fact = fragmentView.findViewById(R.id.fact)
         fact?.text = viewModel.currentJoke.value
 
         viewModel.currentJoke.observe(
             viewLifecycleOwner,
-            Observer { currentJoke -> updateJoke(currentJoke) })
+            Observer { currentJoke ->
+                updateJoke(currentJoke)
+            })
 
-        fact = fragmentView.findViewById(R.id.fact)
-        fact?.text = viewModel.currentJoke.value
 
         button = fragmentView.findViewById(R.id.button)
         button?.text = "Next"
 
         button?.setOnClickListener {
-            context?.let { context -> viewModel.getData(context) }
+            context?.let { context -> viewModel.getJoke(context) }
         }
 
         Log.i("JokeFragment", "Called ViewModelProvider.get")
@@ -55,10 +52,10 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
     }
 
 
+
     fun updateJoke(joke: String) {
         fact?.setText(joke)
     }
-
 
     //Log.i nos métodos do ciclo de vida
     override fun onStart() {

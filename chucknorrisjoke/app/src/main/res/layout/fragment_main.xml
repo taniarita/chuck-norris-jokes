@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -29,13 +27,15 @@
 
             <ImageView
                 android:id="@+id/imageChuck"
-                android:layout_width="175dp"
-                android:layout_height="181dp"
+                tools:text = ""
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="8dp"
                 android:contentDescription="@string/app_name"
+                android:src="@drawable/chucknorris"
                 app:srcCompat="@drawable/chucknorris" />
 
             <TextView

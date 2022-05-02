@@ -3,18 +3,19 @@ package com.example.chucknorris_joke
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class NetworkUtils {
+class RetrofitClient {
 
     companion object {
 
         /** Retorna uma Instância do Client Retrofit para Requisições
          * @param path Caminho Principal da API
          */
-        fun getRetrofitInstance(path : String) : Retrofit {
+        fun getRetrofitInstance(path : String) : Service {
             return Retrofit.Builder()
                 .baseUrl(path)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
+                .create(Service::class.java)
         }
     }
 }
