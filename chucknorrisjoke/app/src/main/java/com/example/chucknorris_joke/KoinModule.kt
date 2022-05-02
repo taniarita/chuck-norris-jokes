@@ -2,6 +2,7 @@ package com.example.chucknorris_joke.di
 
 import com.example.chucknorris_joke.JokeViewModel
 import com.example.chucknorris_joke.RetrofitClient
+import com.example.chucknorris_joke.Service
 import com.example.chucknorris_joke.data.JokeDataSource
 import com.example.chucknorris_joke.data.JokeDataSourceImpl
 import com.example.chucknorris_joke.repository.JokeRepository
@@ -11,27 +12,22 @@ import org.koin.dsl.module
 
 val jokeViewModelModule = module {
     single {
-        JokeViewModel(androidApplication(), get())
+        JokeViewModel(application = androidApplication(), jokeRepository = get<JokeRepository>())
     }
 }
 
 val retrofitJokeService = module {
     factory {
-//            Retrofit.Builder()
-//                .baseUrl("https://api.chucknorris.io/jokes/random")
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build()
-//                .create(Service::class.java)
         RetrofitClient.getRetrofitInstance("https://api.chucknorris.io/jokes/")
     }
 }
 
 val jokeDataSourceModule = module {
-    factory<JokeDataSource> { JokeDataSourceImpl(get()) }
+    factory<JokeDataSource> { JokeDataSourceImpl(get<Service>()) }
 }
 
 val jokeRepositoryModule = module {
-    factory<JokeRepository> { JokeRepositoryImpl(get()) }
+    factory<JokeRepository> { JokeRepositoryImpl(get<JokeDataSource>()) }
 }
 
 
