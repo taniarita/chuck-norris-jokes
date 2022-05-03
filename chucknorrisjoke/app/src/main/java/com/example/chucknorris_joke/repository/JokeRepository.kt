@@ -1,7 +1,7 @@
 package com.example.chucknorris_joke.repository
 
-import com.example.chucknorris_joke.JokeModel
+import com.example.chucknorris_joke.domain.Joke
 
 interface JokeRepository {
-    suspend fun getJoke(): JokeModel
+    suspend fun getJoke(): Joke
 }
