@@ -6,22 +6,31 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.chucknorris_joke.repository.JokeRepository
+import com.example.chucknorris_joke.domain.Joke
+import com.example.chucknorris_joke.usecase.GetJokeUseCase
 import kotlinx.coroutines.launch
 
 class JokeViewModel(
     application: Application,
-    private val jokeRepository: JokeRepository
+    private val getJokeUseCase: GetJokeUseCase
 ) : AndroidViewModel(application) {
 
     val currentJoke = MutableLiveData<String>("")
-
+    val currentError = MutableLiveData<String>("")
 
     fun getJoke(context: Context) {
 
         viewModelScope.launch {
-            currentJoke.value = jokeRepository.getJoke().value
+            getJokeUseCase(::onSuccess, ::onError)
         }
+    }
+
+    fun onSuccess(joke : Joke) {
+        currentJoke.value = joke.value
+    }
+
+    fun onError(erro : String) {
+        currentError.value = erro
     }
 
     override fun onCleared() {
