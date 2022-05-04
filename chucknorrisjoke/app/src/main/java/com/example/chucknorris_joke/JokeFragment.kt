@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import org.koin.android.ext.android.inject
@@ -38,6 +39,12 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
                 updateJoke(currentJoke)
             })
 
+        viewModel.currentError.observe(
+            viewLifecycleOwner,
+            Observer { currentError ->
+                Toast.makeText(context, currentError, Toast.LENGTH_LONG)
+            }
+        )
 
         button = fragmentView.findViewById(R.id.button)
         button?.text = "Next"
@@ -50,8 +57,6 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
 
         return fragmentView
     }
-
-
 
     fun updateJoke(joke: String) {
         fact?.setText(joke)

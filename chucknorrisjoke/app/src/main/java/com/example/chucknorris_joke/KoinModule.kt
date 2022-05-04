@@ -7,12 +7,13 @@ import com.example.chucknorris_joke.data.JokeDataSource
 import com.example.chucknorris_joke.data.JokeDataSourceImpl
 import com.example.chucknorris_joke.repository.JokeRepository
 import com.example.chucknorris_joke.repository.JokeRepositoryImpl
+import com.example.chucknorris_joke.usecase.GetJokeUseCase
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
 val jokeViewModelModule = module {
     single {
-        JokeViewModel(application = androidApplication(), jokeRepository = get<JokeRepository>())
+        JokeViewModel(application = androidApplication(), get<GetJokeUseCase>())
     }
 }
 
@@ -30,5 +31,8 @@ val jokeRepositoryModule = module {
     factory<JokeRepository> { JokeRepositoryImpl(get<JokeDataSource>()) }
 }
 
+val getJokeUseCase = module {
+    factory<GetJokeUseCase> { GetJokeUseCase(get<JokeRepository>()) }
+}
 
 
