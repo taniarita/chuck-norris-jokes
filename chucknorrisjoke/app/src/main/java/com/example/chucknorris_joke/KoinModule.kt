@@ -1,13 +1,14 @@
 package com.example.chucknorris_joke.di
 
-import com.example.chucknorris_joke.JokeViewModel
 import com.example.chucknorris_joke.RetrofitClient
 import com.example.chucknorris_joke.Service
+import com.example.chucknorris_joke.core.Coroutine
 import com.example.chucknorris_joke.data.JokeDataSource
 import com.example.chucknorris_joke.data.JokeDataSourceImpl
 import com.example.chucknorris_joke.repository.JokeRepository
 import com.example.chucknorris_joke.repository.JokeRepositoryImpl
 import com.example.chucknorris_joke.usecase.GetJokeUseCase
+import com.example.chucknorris_joke.viewModels.JokeViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
@@ -35,4 +36,6 @@ val getJokeUseCase = module {
     factory<GetJokeUseCase> { GetJokeUseCase(get<JokeRepository>()) }
 }
 
+val coroutine = module {
+    single{ Coroutine()} }
 

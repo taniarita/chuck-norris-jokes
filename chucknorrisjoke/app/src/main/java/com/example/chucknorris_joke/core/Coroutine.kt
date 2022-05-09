@@ -1,4 +1,4 @@
-package com.example.chucknorris_joke
+package com.example.chucknorris_joke.core
 
 import kotlinx.coroutines.Dispatchers
 import kotlin.coroutines.CoroutineContext

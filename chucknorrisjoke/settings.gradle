@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "chucknorris-joke"
 include ':app'
-include ':core'
