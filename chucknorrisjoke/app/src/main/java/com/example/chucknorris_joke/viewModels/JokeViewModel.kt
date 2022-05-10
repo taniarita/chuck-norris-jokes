@@ -1,8 +1,6 @@
-package com.example.chucknorris_joke
+package com.example.chucknorris_joke.viewModels
 
 import android.app.Application
-import android.content.Context
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -18,10 +16,10 @@ class JokeViewModel(
     val currentJoke = MutableLiveData<String>("")
     val currentError = MutableLiveData<String>("")
 
-    fun getJoke(context: Context) {
+    fun getJoke() {
 
         viewModelScope.launch {
-            getJokeUseCase(::onSuccess, ::onError)
+            getJokeUseCase.invoke(::onSuccess, ::onError)
         }
     }
 
@@ -35,6 +33,6 @@ class JokeViewModel(
 
     override fun onCleared() {
         super.onCleared()
-        Log.i("JokeViewModel", "JokeViewModel destroyed!")
+//        Log.i("JokeViewModel", "JokeViewModel destroyed!")
     }
 }

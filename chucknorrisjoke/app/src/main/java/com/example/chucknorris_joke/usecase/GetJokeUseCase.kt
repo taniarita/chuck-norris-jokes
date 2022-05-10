@@ -16,7 +16,7 @@ class GetJokeUseCase(
     ) {
 
         try {
-            onSuccess(jokeRepository.getJoke())
+            onSuccess(jokeRepository.getApiJoke())
         } catch (e: Exception) {
             val errorMessage = when (e) {
                 is UnknownHostException -> {

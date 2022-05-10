@@ -20,7 +20,8 @@ class JokeApplication : Application() {
                     retrofitJokeService,
                     jokeRepositoryModule,
                     jokeDataSourceModule,
-                    getJokeUseCase
+                    getJokeUseCase,
+                    coroutine
                 )
             )
         }

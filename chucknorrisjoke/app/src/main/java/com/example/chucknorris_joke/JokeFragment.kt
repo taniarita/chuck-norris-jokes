@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.example.chucknorris_joke.viewModels.JokeViewModel
 import org.koin.android.ext.android.inject
 
 
@@ -26,7 +27,7 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
         savedInstanceState: Bundle?
     ): View? {
 
-        Log.i("JokeFragment", "onCreate Called")
+//        Log.i("JokeFragment", "onCreate Called")
 
         val fragmentView = inflater.inflate(R.layout.fragment_main, container, false)
 
@@ -42,7 +43,7 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
         viewModel.currentError.observe(
             viewLifecycleOwner,
             Observer { currentError ->
-                Toast.makeText(context, currentError, Toast.LENGTH_LONG)
+                Toast.makeText(context, currentError, Toast.LENGTH_LONG).show()
             }
         )
 
@@ -50,10 +51,10 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
         button?.text = "Next"
 
         button?.setOnClickListener {
-            context?.let { context -> viewModel.getJoke(context) }
+            context?.let { context -> viewModel.getJoke() }
         }
 
-        Log.i("JokeFragment", "Called ViewModelProvider.get")
+//        Log.i("JokeFragment", "Called ViewModelProvider.get")
 
         return fragmentView
     }
