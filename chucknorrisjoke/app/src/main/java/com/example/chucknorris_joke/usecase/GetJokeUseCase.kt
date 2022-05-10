@@ -7,7 +7,6 @@ import java.util.concurrent.TimeoutException
 
 class GetJokeUseCase(
     private val jokeRepository: JokeRepository
-//    private val coroutine: Coroutine
 ) {
 
     suspend operator fun invoke(
