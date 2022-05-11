@@ -27,8 +27,6 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
         savedInstanceState: Bundle?
     ): View? {
 
-//        Log.i("JokeFragment", "onCreate Called")
-
         val fragmentView = inflater.inflate(R.layout.fragment_main, container, false)
 
         fact = fragmentView.findViewById(R.id.fact)
@@ -53,8 +51,6 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
         button?.setOnClickListener {
             context?.let { context -> viewModel.getJoke() }
         }
-
-//        Log.i("JokeFragment", "Called ViewModelProvider.get")
 
         return fragmentView
     }
