@@ -1,7 +1,7 @@
 package com.example.chucknorris_joke.di
 
-import com.example.chucknorris_joke.RetrofitClient
-import com.example.chucknorris_joke.Service
+import com.example.chucknorris_joke.retrofitClient.RetrofitClient
+import com.example.chucknorris_joke.endpoint.Service
 import com.example.chucknorris_joke.core.Coroutine
 import com.example.chucknorris_joke.data.JokeDataSource
 import com.example.chucknorris_joke.data.JokeDataSourceImpl

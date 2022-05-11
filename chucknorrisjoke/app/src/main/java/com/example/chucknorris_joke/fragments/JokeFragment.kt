@@ -1,4 +1,4 @@
-package com.example.chucknorris_joke
+package com.example.chucknorris_joke.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.example.chucknorris_joke.R
 import com.example.chucknorris_joke.viewModels.JokeViewModel
 import org.koin.android.ext.android.inject
 

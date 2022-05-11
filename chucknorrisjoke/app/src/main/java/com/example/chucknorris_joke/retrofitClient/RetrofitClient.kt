@@ -1,5 +1,6 @@
-package com.example.chucknorris_joke
+package com.example.chucknorris_joke.retrofitClient
 
+import com.example.chucknorris_joke.endpoint.Service
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

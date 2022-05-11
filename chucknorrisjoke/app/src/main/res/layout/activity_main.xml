@@ -10,7 +10,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_main"
-        android:name="com.example.chucknorris_joke.JokeFragment"
+        android:name="com.example.chucknorris_joke.fragments.JokeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

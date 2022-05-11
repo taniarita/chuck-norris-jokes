@@ -1,5 +1,7 @@
 package com.example.chucknorris_joke
 
+import com.example.chucknorris_joke.endpoint.JokeMapper
+import com.example.chucknorris_joke.models.JokeModel
 import io.kotest.matchers.shouldBe
 import org.junit.Test
 

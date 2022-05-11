@@ -1,4 +1,4 @@
-package com.example.chucknorris_joke
+package com.example.chucknorris_joke.models
 
 import com.google.gson.annotations.SerializedName
 

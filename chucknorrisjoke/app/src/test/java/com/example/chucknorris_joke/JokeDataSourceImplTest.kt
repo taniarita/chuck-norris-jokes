@@ -2,6 +2,8 @@ package com.example.chucknorris_joke
 
 import com.example.chucknorris_joke.data.JokeDataSourceImpl
 import com.example.chucknorris_joke.domain.Joke
+import com.example.chucknorris_joke.endpoint.Service
+import com.example.chucknorris_joke.models.JokeModel
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk

@@ -2,6 +2,7 @@ package com.example.chucknorris_joke
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.chucknorris_joke.fragments.JokeFragment
 
 
 class MainActivity : AppCompatActivity() {
