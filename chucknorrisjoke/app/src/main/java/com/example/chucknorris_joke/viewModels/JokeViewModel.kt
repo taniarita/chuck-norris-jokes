@@ -16,6 +16,7 @@ class JokeViewModel(
     val currentJoke = MutableLiveData<String>("")
     val currentError = MutableLiveData<String>("")
 
+
     fun getJoke() {
 
         viewModelScope.launch {
@@ -31,8 +32,4 @@ class JokeViewModel(
         currentError.value = erro
     }
 
-    override fun onCleared() {
-        super.onCleared()
-//        Log.i("JokeViewModel", "JokeViewModel destroyed!")
-    }
 }

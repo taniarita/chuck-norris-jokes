@@ -21,7 +21,9 @@ class JokeApplication : Application() {
                     jokeRepositoryModule,
                     jokeDataSourceModule,
                     getJokeUseCase,
-                    coroutine
+                    coroutine,
+                    imageDataSourceModule,
+                    imageRepositoryModule
                 )
             )
         }

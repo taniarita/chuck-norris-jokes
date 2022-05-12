@@ -2,7 +2,7 @@ package com.example.chucknorris_joke
 
 import com.example.chucknorris_joke.data.JokeDataSourceImpl
 import com.example.chucknorris_joke.domain.Joke
-import com.example.chucknorris_joke.endpoint.Service
+import com.example.chucknorris_joke.endpoint.JokeService
 import com.example.chucknorris_joke.models.JokeModel
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -12,15 +12,15 @@ import org.junit.Test
 
 class JokeDataSourceImplTest {
 
-    val jokeService: Service = mockk()
+    val jokeJokeService: JokeService = mockk()
 
     @Test
     fun `GIVEN jokeDataSourceImpl WHEN getJoke called the return of getJoke is a joke value`() {
         runBlocking {
             //GIVEN
-            val dataSource = JokeDataSourceImpl(jokeService)
+            val dataSource = JokeDataSourceImpl(jokeJokeService)
             val joke = Joke("joke")
-            coEvery { jokeService.getJoke() } returns JokeModel(
+            coEvery { jokeJokeService.getJoke() } returns JokeModel(
                 listOf(),
                 "",
                 "",
@@ -42,8 +42,8 @@ class JokeDataSourceImplTest {
     fun `GIVEN jokeDataSourceImpl WHEN getJoke service called if an error occurs an exception MUST be thrown`() {
         runBlocking {
             //GIVEN
-            val dataSource = JokeDataSourceImpl(jokeService)
-            coEvery { jokeService.getJoke() } throws Exception()
+            val dataSource = JokeDataSourceImpl(jokeJokeService)
+            coEvery { jokeJokeService.getJoke() } throws Exception()
 
             //WHEN
             dataSource.getJoke()

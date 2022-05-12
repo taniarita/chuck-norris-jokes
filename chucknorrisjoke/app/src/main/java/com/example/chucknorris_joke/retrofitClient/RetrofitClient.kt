@@ -1,6 +1,6 @@
 package com.example.chucknorris_joke.retrofitClient
 
-import com.example.chucknorris_joke.endpoint.Service
+import com.example.chucknorris_joke.endpoint.JokeService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -11,12 +11,12 @@ class RetrofitClient {
         /** Retorna uma Instância do Client Retrofit para Requisições
          * @param path Caminho Principal da API
          */
-        fun getRetrofitInstance(path : String) : Service {
+        fun getRetrofitInstance(path : String) : JokeService {
             return Retrofit.Builder()
                 .baseUrl(path)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(Service::class.java)
+                .create(JokeService::class.java)
         }
     }
 }

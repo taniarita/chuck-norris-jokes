@@ -27,7 +27,7 @@
 
             <ImageView
                 android:id="@+id/imageChuck"
-                tools:text = ""
+                tools:text = "something"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:layout_gravity="center"
