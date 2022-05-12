@@ -7,4 +7,5 @@ interface JokeService {
 
     @GET("random")
     suspend fun getJoke(): JokeModel
+    suspend fun getImage(): JokeModel
 }

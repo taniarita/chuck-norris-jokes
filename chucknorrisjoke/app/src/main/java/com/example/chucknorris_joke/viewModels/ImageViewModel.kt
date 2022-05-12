@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.chucknorris_joke.domain.Image
+import com.example.chucknorris_joke.domain.Joke
 import com.example.chucknorris_joke.usecase.GetImageUseCase
 import kotlinx.coroutines.launch
 
@@ -16,8 +16,8 @@ class ImageViewModel(
 
 ) : AndroidViewModel(application) {
 
-    val imageChuck = MutableLiveData<String>("")
-    val imageError = MutableLiveData<String>("")
+    val currentImageChuck = MutableLiveData<String>("")
+    val currentImageError = MutableLiveData<String>("")
 
     fun getImage() {
 
@@ -26,12 +26,12 @@ class ImageViewModel(
         }
     }
 
-    fun onSuccess(image : Image) {
-        imageChuck.value = image.icon
+    fun onSuccess(image : Joke) {
+        currentImageChuck.value = image.icon
     }
 
     fun onError(erro : String) {
-        imageError.value = erro
+        currentImageError.value = erro
     }
 
 }

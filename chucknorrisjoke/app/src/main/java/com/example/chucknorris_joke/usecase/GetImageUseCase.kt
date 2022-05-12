@@ -1,17 +1,18 @@
 package com.example.chucknorris_joke.usecase
 
-import com.example.chucknorris_joke.repository.ImageRepository
+import com.example.chucknorris_joke.domain.Joke
+import com.example.chucknorris_joke.repository.JokeRepository
 import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 
 class GetImageUseCase(
 
-    private val imageRepository: ImageRepository
+    private val imageRepository: JokeRepository
 
 ) {
 
     suspend operator fun invoke(
-        onSucess : (image : com.example.chucknorris_joke.domain.Image) -> Unit = {},
+        onSucess : (image : Joke) -> Unit = {},
         onError : (errorMessage: String) -> Unit = {}
 
     ){

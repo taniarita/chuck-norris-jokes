@@ -24,7 +24,7 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
     var image: ImageView? = null
 
     private val viewModel: JokeViewModel by inject()
-    private val imageView : ImageViewModel by inject()
+    private val imageViewModel : ImageViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,11 +34,11 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
 
         val fragmentView = inflater.inflate(R.layout.fragment_main, container, false)
 
-        image = fragmentView.findViewById(R.id.imageChuck)
-
-
         fact = fragmentView.findViewById(R.id.fact)
         fact?.text = viewModel.currentJoke.value
+
+//        image = fragmentView.findViewById(R.id.imageChuck)
+//        image?.
 
 
         viewModel.currentJoke.observe(
@@ -54,6 +54,20 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
             }
         )
 
+//        imageViewModel.currentImageChuck.observe(
+//            viewLifecycleOwner,
+//            Observer { currentImageChuck ->
+//                updateImage(currentImageChuck)
+//            }
+//        )
+//
+//        imageViewModel.currentImageError.observe(
+//            viewLifecycleOwner,
+//            Observer { currentImageError ->
+//                Toast.makeText(context, currentImageError,Toast.LENGTH_LONG).show()
+//            }
+//        )
+
         button = fragmentView.findViewById(R.id.button)
         button?.text = "Next"
 
@@ -68,9 +82,16 @@ class JokeFragment : Fragment(R.layout.fragment_main) {
         fact?.setText(joke)
     }
 
-    fun updateImage(image : String) {
-        image?.plus(image)
-    }
+//    fun updateImage(image : String) {
+//        image?
+//    }
+
+
+
+
+
+
+
 
     //Log.i nos métodos do ciclo de vida
     override fun onStart() {
