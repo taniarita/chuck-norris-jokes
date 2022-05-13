@@ -12,15 +12,15 @@ import org.junit.Test
 
 class JokeDataSourceImplTest {
 
-    val jokeJokeService: JokeService = mockk()
+    val jokeService: JokeService = mockk()
 
     @Test
     fun `GIVEN jokeDataSourceImpl WHEN getJoke called the return of getJoke is a joke value`() {
         runBlocking {
             //GIVEN
-            val dataSource = JokeDataSourceImpl(jokeJokeService)
-            val joke = Joke("joke")
-            coEvery { jokeJokeService.getJoke() } returns JokeModel(
+            val dataSource = JokeDataSourceImpl(jokeService)
+            val joke = Joke("joke", "")
+            coEvery { jokeService.getJoke() } returns JokeModel(
                 listOf(),
                 "",
                 "",
@@ -42,8 +42,8 @@ class JokeDataSourceImplTest {
     fun `GIVEN jokeDataSourceImpl WHEN getJoke service called if an error occurs an exception MUST be thrown`() {
         runBlocking {
             //GIVEN
-            val dataSource = JokeDataSourceImpl(jokeJokeService)
-            coEvery { jokeJokeService.getJoke() } throws Exception()
+            val dataSource = JokeDataSourceImpl(jokeService)
+            coEvery { jokeService.getJoke() } throws Exception()
 
             //WHEN
             dataSource.getJoke()

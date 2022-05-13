@@ -15,6 +15,7 @@ class JokeViewModel(
 
     val currentJoke = MutableLiveData<String>("")
     val currentError = MutableLiveData<String>("")
+    val imageChuck = MutableLiveData<String>("")
 
 
     fun getJoke() {
@@ -26,6 +27,7 @@ class JokeViewModel(
 
     fun onSuccess(joke : Joke) {
         currentJoke.value = joke.value
+        imageChuck.value = joke.icon
     }
 
     fun onError(erro : String) {

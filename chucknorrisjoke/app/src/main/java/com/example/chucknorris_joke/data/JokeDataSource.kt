@@ -5,5 +5,7 @@ import com.example.chucknorris_joke.domain.Joke
 interface JokeDataSource {
 
     suspend fun getJoke(): Joke
-    suspend fun getImage() : Joke
+
+
+
 }

@@ -7,5 +7,10 @@ interface JokeService {
 
     @GET("random")
     suspend fun getJoke(): JokeModel
-    suspend fun getImage(): JokeModel
+
+//    @GET("random")
+//    suspend fun getJokeByCategory(
+//        @Query("category") category: String = "food"
+//    ): JokeModel
+
 }

@@ -50,7 +50,7 @@ class JokeViewModelTest {
     fun `GIVEN jokeViewModel WHEN onSucess is called THEN with success, currentJoke value should be a joke value`() {
         // GIVEN
         val jokeViewModel = JokeViewModel(application, getJokeUseCase)
-        val joke = Joke("")
+        val joke = Joke("", "")
 
         coEvery {
             getJokeUseCase(

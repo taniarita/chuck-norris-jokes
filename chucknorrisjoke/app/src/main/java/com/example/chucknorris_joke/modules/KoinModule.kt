@@ -25,7 +25,7 @@ val retrofitJokeService = module {
 }
 
 val jokeDataSourceModule = module {
-    factory<JokeDataSource> { JokeDataSourceImpl(get<JokeService>(), get<JokeService>()) }
+    factory<JokeDataSource> { JokeDataSourceImpl(get<JokeService>()) }
 }
 
 val jokeRepositoryModule = module {
