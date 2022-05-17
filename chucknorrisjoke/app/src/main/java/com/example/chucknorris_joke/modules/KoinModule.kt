@@ -1,6 +1,5 @@
 package com.example.chucknorris_joke.di
 
-import com.example.chucknorris_joke.core.Coroutine
 import com.example.chucknorris_joke.data.JokeDataSource
 import com.example.chucknorris_joke.data.JokeDataSourceImpl
 import com.example.chucknorris_joke.endpoint.JokeService
@@ -36,6 +35,6 @@ val getJokeUseCase = module {
     factory<GetJokeUseCase> { GetJokeUseCase(get<JokeRepository>()) }
 }
 
-val coroutine = module {
-    single{ Coroutine()} }
+//val coroutine = module {
+//    single{ Coroutine() } }
 
