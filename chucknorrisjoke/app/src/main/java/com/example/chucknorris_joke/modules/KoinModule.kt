@@ -1,12 +1,11 @@
 package com.example.chucknorris_joke.di
 
-import com.example.chucknorris_joke.retrofitClient.RetrofitClient
-import com.example.chucknorris_joke.endpoint.Service
-import com.example.chucknorris_joke.core.Coroutine
 import com.example.chucknorris_joke.data.JokeDataSource
 import com.example.chucknorris_joke.data.JokeDataSourceImpl
+import com.example.chucknorris_joke.endpoint.JokeService
 import com.example.chucknorris_joke.repository.JokeRepository
 import com.example.chucknorris_joke.repository.JokeRepositoryImpl
+import com.example.chucknorris_joke.retrofitClient.RetrofitJoke
 import com.example.chucknorris_joke.usecase.GetJokeUseCase
 import com.example.chucknorris_joke.viewModels.JokeViewModel
 import org.koin.android.ext.koin.androidApplication
@@ -20,12 +19,12 @@ val jokeViewModelModule = module {
 
 val retrofitJokeService = module {
     factory {
-        RetrofitClient.getRetrofitInstance("https://api.chucknorris.io/jokes/")
+        RetrofitJoke.getRetrofitInstance("https://api.chucknorris.io/jokes/")
     }
 }
 
 val jokeDataSourceModule = module {
-    factory<JokeDataSource> { JokeDataSourceImpl(get<Service>()) }
+    factory<JokeDataSource> { JokeDataSourceImpl(get<JokeService>()) }
 }
 
 val jokeRepositoryModule = module {
@@ -36,6 +35,6 @@ val getJokeUseCase = module {
     factory<GetJokeUseCase> { GetJokeUseCase(get<JokeRepository>()) }
 }
 
-val coroutine = module {
-    single{ Coroutine()} }
+//val coroutine = module {
+//    single{ Coroutine() } }
 

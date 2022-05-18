@@ -48,7 +48,7 @@ class MainFragmentTest {
     @Before
     fun setup() {
         loadKoinModules(getModule())
-        coEvery { jokeRepository.getApiJoke() } returns Joke("Joke")
+        coEvery { jokeRepository.getApiJoke() } returns Joke("Joke", "")
     }
 
     @After
@@ -60,7 +60,7 @@ class MainFragmentTest {
     fun testeDeInterface() {
         //GIVEN
         launchFragment<JokeFragment>()
-        val joke = Joke("Joke")
+        val joke = Joke("Joke", "")
 
         //WHEN
         onView(withId(R.id.button))

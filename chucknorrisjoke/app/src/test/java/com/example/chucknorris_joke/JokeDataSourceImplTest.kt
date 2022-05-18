@@ -2,7 +2,7 @@ package com.example.chucknorris_joke
 
 import com.example.chucknorris_joke.data.JokeDataSourceImpl
 import com.example.chucknorris_joke.domain.Joke
-import com.example.chucknorris_joke.endpoint.Service
+import com.example.chucknorris_joke.endpoint.JokeService
 import com.example.chucknorris_joke.models.JokeModel
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -12,14 +12,14 @@ import org.junit.Test
 
 class JokeDataSourceImplTest {
 
-    val jokeService: Service = mockk()
+    val jokeService: JokeService = mockk()
 
     @Test
     fun `GIVEN jokeDataSourceImpl WHEN getJoke called the return of getJoke is a joke value`() {
         runBlocking {
             //GIVEN
             val dataSource = JokeDataSourceImpl(jokeService)
-            val joke = Joke("joke")
+            val joke = Joke("joke", "")
             coEvery { jokeService.getJoke() } returns JokeModel(
                 listOf(),
                 "",

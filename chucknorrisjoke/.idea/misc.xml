@@ -6,9 +6,10 @@
         <entry key="../../../../../../../layout/custom_preview.xml" value="0.33958333333333335" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.226" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.201" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragmennt_main.xml" value="0.35208333333333336" />
         <entry key="app/src/main/res/layout/fragment.xml" value="0.21030042918454936" />
+        <entry key="app/src/main/res/layout/fragment_image_chuck.xml" value="0.39114583333333336" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.18" />
       </map>
     </option>

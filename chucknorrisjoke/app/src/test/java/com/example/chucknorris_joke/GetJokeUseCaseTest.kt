@@ -25,7 +25,7 @@ class GetJokeUseCaseTest {
             runBlocking {
                 //GIVEN
                 val getJokeUseCase = GetJokeUseCase(jokeRepository)
-                val joke = Joke("")
+                val joke = Joke("", "")
                 coEvery { jokeRepository.getApiJoke() } returns joke
 
 

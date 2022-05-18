@@ -7,7 +7,8 @@ object JokeMapper {
 
     fun toDomain(jokeModel: JokeModel) : Joke {
         return Joke(
-            value = jokeModel.value
+            value = jokeModel.value,
+            icon = jokeModel.icon
         )
     }
 }
