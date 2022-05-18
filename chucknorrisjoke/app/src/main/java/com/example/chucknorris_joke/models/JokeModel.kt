@@ -20,6 +20,3 @@ data class JokeModel(
 )
 
 
-/**
-Model: recebe o json e transforma em objeto;
- */

@@ -7,5 +7,4 @@ class JokeDataSourceImpl(private val jokeService: JokeService) : JokeDataSource 
 
     override suspend fun getJoke() = JokeMapper.toDomain(jokeService.getJoke())
 
-
 }

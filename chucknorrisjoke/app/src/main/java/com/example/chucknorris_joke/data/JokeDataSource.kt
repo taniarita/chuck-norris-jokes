@@ -6,6 +6,4 @@ interface JokeDataSource {
 
     suspend fun getJoke(): Joke
 
-
-
 }

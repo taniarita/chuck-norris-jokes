@@ -6,5 +6,4 @@ interface JokeRepository {
 
     suspend fun getApiJoke(): Joke
 
-
 }

@@ -6,5 +6,4 @@ class JokeRepositoryImpl(private val jokeDataSource: JokeDataSource) : JokeRepos
 
     override suspend fun getApiJoke() = jokeDataSource.getJoke()
 
-
 }
